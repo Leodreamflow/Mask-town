@@ -12,12 +12,14 @@ public class MoveSetting : MonoBehaviour
     public Transform mittelposition;
 
     private float count = 0;
+    private Animator npcanimator;
 
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = startposition.position;
+        npcanimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,16 +36,19 @@ public class MoveSetting : MonoBehaviour
             if(count < waitsecond)
             {
                 count += Time.deltaTime;
+                npcanimator.SetTrigger("isStanding");
             }
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, endposition.position, movespeed * Time.deltaTime);
+                npcanimator.SetTrigger("isWalking");
             }
         }
         else
         {
             // 否则，继续向终点移动
             transform.position = Vector3.MoveTowards(transform.position, endposition.position, movespeed * Time.deltaTime);
+            npcanimator.SetTrigger("isWalking");
         }
     }
 }
