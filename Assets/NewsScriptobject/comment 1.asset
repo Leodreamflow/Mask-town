@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d16e541dba8247ed8ea8b6a3cce15e1, type: 3}
+  m_Name: comment 1
+  m_EditorClassIdentifier: 
+  name: comment1
+  info: Dose anyone like this crap?
+  icon: {fileID: 21300000, guid: 62636ec8e23286243909d52f5b1a24e1, type: 3}
+  commentarMZ: brute
+  NPMZ: 3

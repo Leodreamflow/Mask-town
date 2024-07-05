@@ -28,7 +28,7 @@ public class Name1 : MonoBehaviour
             GUIStyle style = new GUIStyle();
             style.fontSize = 30;
             style.normal.textColor = Color.white;
-            GUI.Label(new Rect(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 100, 100), "The new TV series the Mystery of Masktown has premiered, and it has set a new record for the highest ratings in the town.", style);
+            GUI.Label(new Rect(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 100, 100), "Menukey", style);
         }
     }
 }
