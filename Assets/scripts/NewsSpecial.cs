@@ -9,6 +9,9 @@ public class NewsSpecial : ScriptableObject
     public Sprite icon = null;
     //public float NPpoint = 0;
 
-    public string commentarMZ = "new comment";
+    public string commentarMZ01 = "new comment";
     public float NPMZ = 0;
+    public bool article = false;
+
+
 }
