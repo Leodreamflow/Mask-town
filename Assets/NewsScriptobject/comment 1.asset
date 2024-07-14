@@ -15,5 +15,6 @@ MonoBehaviour:
   name: comment1
   info: Dose anyone like this crap?
   icon: {fileID: 21300000, guid: 62636ec8e23286243909d52f5b1a24e1, type: 3}
-  commentarMZ: brute
+  commentarMZ01: new comment
   NPMZ: 3
+  article: 0

@@ -54,7 +54,7 @@ public class MoveSetting : MonoBehaviour
                 npcanimator.SetTrigger("isWalking");
             }
         }
-        
+
     }
 
     public void lightON()
