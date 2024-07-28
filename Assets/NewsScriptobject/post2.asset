@@ -15,5 +15,18 @@ MonoBehaviour:
   name: Post2
   info: The Mystery of Masktown- a cheesy entertainment film.
   icon: {fileID: 21300000, guid: e5bfe09076703304d8f605bb9572a4bd, type: 3}
-  commentarMZ: critic
-  NPMZ: 6
+  commentarMask01: Indeed.
+  NPMask01: 1
+  articleMask01: 0
+  commentarMask02: null
+  NPMask02: 0
+  articleMask02: 0
+  commentarMask03: null
+  NPMask03: 0
+  articleMask03: 0
+  commentarMask04: You should watch it agian!
+  NPMask04: 2
+  articleMask04: 0
+  commentarMask05: null
+  NPMask05: 0
+  articleMask05: 0

@@ -16,5 +16,18 @@ MonoBehaviour:
   info: The new TV series the Mystery of Masktown has premiered, and it has set a
     new record for the highest ratings in the town.
   icon: {fileID: 21300000, guid: c01d3ed8677b69c4bac6783abc452cd5, type: 3}
-  commentarMZ: no
-  NPMZ: 0
+  commentarMask01: Let's watch the Mystery of Masktown.It's pretty good.
+  NPMask01: 1
+  articleMask01: 0
+  commentarMask02: ............
+  NPMask02: 0
+  articleMask02: 0
+  commentarMask03: The Mystery of Masktown- a cheesy entertainment film.
+  NPMask03: 6
+  articleMask03: 1
+  commentarMask04: The Mystery of Masktown is the strongest show of all time!
+  NPMask04: 4
+  articleMask04: 1
+  commentarMask05: Dose anyone like this crap?
+  NPMask05: 3
+  articleMask05: 0

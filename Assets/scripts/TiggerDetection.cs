@@ -33,7 +33,7 @@ public class TriggerDetection : MonoBehaviour
    
         if (player != null && player.Length > 0)
         {
-    
+
             MoveSetting moveSetting = player[0].GetComponent<MoveSetting>();
             if (moveSetting != null)
             {
@@ -42,6 +42,16 @@ public class TriggerDetection : MonoBehaviour
             else
             {
                 Debug.LogWarning("MoveSetting component not found on player[0]!");
+            }
+
+            MoveSetting2 moveSetting2 = player[0].GetComponent<MoveSetting2>();
+            if (moveSetting2 != null)
+            {
+                moveSetting2.lightON();
+            }
+            else
+            {
+                Debug.LogWarning("MoveSetting2 component not found on player[0]!");
             }
         }
         else

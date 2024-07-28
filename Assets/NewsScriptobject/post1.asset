@@ -15,5 +15,18 @@ MonoBehaviour:
   name: Post1
   info: The Mystery of Masktown is the strongest show of all time!
   icon: {fileID: 21300000, guid: 044d33989f971554787d058ce08faebe, type: 3}
-  commentarMZ: adherent
-  NPMZ: 4
+  commentarMask01: Agreed.
+  NPMask01: 1
+  articleMask01: 0
+  commentarMask02: null
+  NPMask02: 0
+  articleMask02: 0
+  commentarMask03: The show is far from good.
+  NPMask03: 3
+  articleMask03: 0
+  commentarMask04: null
+  NPMask04: 0
+  articleMask04: 0
+  commentarMask05: Your taste in aesthetics is beyond repair
+  NPMask05: 3
+  articleMask05: 0
