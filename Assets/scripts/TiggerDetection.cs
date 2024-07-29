@@ -4,59 +4,71 @@ using UnityEngine;
 
 public class TriggerDetection : MonoBehaviour
 {
-    public float radius = 2.5f; 
-    public Transform[] player; 
+    public float radius = 2.5f;
+    public Transform[] players;
+
+    private bool[] canInteract;
+
+    private void Start()
+    {
+        if (players != null)
+        {
+            canInteract = new bool[players.Length];
+        }
+        else
+        {
+            Debug.LogWarning("Players array is not assigned!");
+        }
+    }
 
     private void Update()
     {
-       
-        if (player != null && player.Length > 0)
+        if (players != null && players.Length > 0)
         {
-   
-            bool canInteract = Vector2.Distance(transform.position, player[0].position) < radius;
-
-            if (canInteract)
+            for (int i = 0; i < players.Length; i++)
             {
-                Debug.Log("Touched a collider: a");
-                InteractEffect();
+                canInteract[i] = Vector2.Distance(transform.position, players[i].position) < radius;
+
+                if (canInteract[i])
+                {
+                    Debug.Log($"Player {i} is within the radius.");
+                    InteractEffect(i);
+                }
             }
         }
         else
         {
-
-            Debug.LogWarning("Player variable in TriggerDetection is not assigned or empty!");
+            Debug.LogWarning("Players array is not assigned or empty!");
         }
     }
 
-    private void InteractEffect()
+    private void InteractEffect(int playerIndex)
     {
-   
-        if (player != null && player.Length > 0)
+        if (players != null && players.Length > 0)
         {
-
-            MoveSetting moveSetting = player[0].GetComponent<MoveSetting>();
+            MoveSetting moveSetting = players[playerIndex].GetComponent<MoveSetting>();
             if (moveSetting != null)
             {
                 moveSetting.lightON();
             }
             else
             {
-                Debug.LogWarning("MoveSetting component not found on player[0]!");
+                Debug.LogWarning($"MoveSetting component not found on player[{playerIndex}]!");
             }
 
-            MoveSetting2 moveSetting2 = player[0].GetComponent<MoveSetting2>();
+            MoveSetting2 moveSetting2 = players[playerIndex].GetComponent<MoveSetting2>();
             if (moveSetting2 != null)
             {
                 moveSetting2.lightON();
             }
             else
             {
-                Debug.LogWarning("MoveSetting2 component not found on player[0]!");
+                Debug.LogWarning($"MoveSetting2 component not found on player[{playerIndex}]!");
             }
         }
         else
         {
-            Debug.LogWarning("Player variable in TriggerDetection is not assigned or empty!");
+            Debug.LogWarning("Players array is not assigned or empty!");
         }
     }
 
