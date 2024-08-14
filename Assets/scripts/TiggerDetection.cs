@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class TriggerDetection : MonoBehaviour
 {
+    //Distance
     public float radius = 2.5f;
     public Transform[] players;
 
     private bool[] canInteract;
+
+
+    //Np
+    public float NPvalue;
+    public NewsFeedback[] Feedbacks;
+
+
+    //Comments
+    public GameObject[] Comments;
+
 
     private void Start()
     {
@@ -33,6 +44,8 @@ public class TriggerDetection : MonoBehaviour
                 {
                     Debug.Log($"Player {i} is within the radius.");
                     InteractEffect(i);
+                    NPManager(i);
+                    CommentsManager(i);
                 }
             }
         }
@@ -70,6 +83,19 @@ public class TriggerDetection : MonoBehaviour
         {
             Debug.LogWarning("Players array is not assigned or empty!");
         }
+    }
+
+    private void NPManager(int maskIndex)
+    {
+        NPvalue += Feedbacks[maskIndex].NPMask;
+
+    }
+
+    private void CommentsManager(int commentIndex)
+    {
+        if (Comments[commentIndex] == null) return;
+
+        Comments[commentIndex].SetActive(true);
     }
 
     private void OnDrawGizmosSelected()

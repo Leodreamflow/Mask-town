@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 public class NPValueManager : MonoBehaviour
 {
+    public Transform Newstransform;
+
     public NewsSpecial newsData;
-    public List<PlayerMask> playerMasks; // ÓÃÓÚ¹ØÁªÍæ¼ÒÓëÑÚÂë
+    public List<PlayerMask> playerMasks; // ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public TextMeshProUGUI npText;
-    public GameObject[] commentObjects; // ´æ´¢ÆÀÂÛÎïÌåµÄÊı×é
+    public GameObject[] commentObjects; // ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private float accumulatedNP = 0f;
-    private HashSet<Transform> playersInRange = new HashSet<Transform>(); // ¼ÇÂ¼´¦ÓÚ·¶Î§ÄÚµÄÍæ¼Ò
-    private HashSet<Transform> playersThatTriggered = new HashSet<Transform>(); // ¼ÇÂ¼ÒÑ´¥·¢¹ı NP Ğ§¹ûµÄÍæ¼Ò
+    private HashSet<Transform> playersInRange = new HashSet<Transform>(); // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ú·ï¿½Î§ï¿½Úµï¿½ï¿½ï¿½ï¿½
+    private HashSet<Transform> playersThatTriggered = new HashSet<Transform>(); // ï¿½ï¿½Â¼ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ NP Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+    private float distance;
 
     private void Start()
     {
@@ -54,20 +58,20 @@ public class NPValueManager : MonoBehaviour
         {
             if (playerMask == null || playerMask.player == null) continue;
 
-            float distance = Vector3.Distance(transform.position, playerMask.player.position);
+            distance = Vector3.Distance(Newstransform.position, playerMask.player.position);
 
-            if (distance < 10f) // ÉèÖÃ¾àÀëãĞÖµ
+            if (distance < 0.5f) // ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
             {
                 if (!playersInRange.Contains(playerMask.player))
                 {
-                    // ĞÂÍæ¼Ò½øÈë·¶Î§
+                    // ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ë·¶Î§
                     playersInRange.Add(playerMask.player);
 
-                    // Ö»´¥·¢Ò»´ÎĞ§¹û
+                    // Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ğ§ï¿½ï¿½
                     if (!playersThatTriggered.Contains(playerMask.player))
                     {
-                        ApplyMaskEffect(playerMask.maskIndex, playerMask.player); // Ó¦ÓÃ¶ÔÓ¦µÄÑÚÂëĞ§¹û
-                        playersThatTriggered.Add(playerMask.player); // ¼ÇÂ¼Íæ¼ÒÒÑ´¥·¢Ğ§¹û
+                        ApplyMaskEffect(playerMask.maskIndex, playerMask.player); // Ó¦ï¿½Ã¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
+                        playersThatTriggered.Add(playerMask.player); // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
                     }
                 }
             }
@@ -75,9 +79,9 @@ public class NPValueManager : MonoBehaviour
             {
                 if (playersInRange.Contains(playerMask.player))
                 {
-                    // Íæ¼ÒÀë¿ª·¶Î§
+                    // ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½Î§
                     playersInRange.Remove(playerMask.player);
-                    // ÒÆ³ıÒÑ´¥·¢Íæ¼Ò£¬ÒÔ±ãÔÙ´Î´¥·¢
+                    // ï¿½Æ³ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ô±ï¿½ï¿½Ù´Î´ï¿½ï¿½ï¿½
                     playersThatTriggered.Remove(playerMask.player);
                 }
             }
@@ -124,14 +128,14 @@ public class NPValueManager : MonoBehaviour
 
         accumulatedNP += npValue;
         UpdateNPText();
-        ShowComment(maskIndex - 1, comment); // maskIndex ´Ó 1 ¿ªÊ¼£¬ËùÒÔÊı×éË÷ÒıÎª maskIndex - 1
+        ShowComment(maskIndex - 1, comment); // maskIndex ï¿½ï¿½ 1 ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª maskIndex - 1
     }
 
     private void UpdateNPText()
     {
         if (npText != null)
         {
-            npText.text = $"{accumulatedNP}"; // Ö»ÏÔÊ¾ÊıÖµ
+            npText.text = $"{accumulatedNP}"; // Ö»ï¿½ï¿½Ê¾ï¿½ï¿½Öµ
         }
     }
 
@@ -142,10 +146,10 @@ public class NPValueManager : MonoBehaviour
         GameObject commentObject = commentObjects[index];
         if (commentObject == null) return;
 
-        // ¼¤»îÆÀÂÛÎïÌå
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         commentObject.SetActive(true);
 
-        // Èç¹ûÆÀÂÛÎïÌå°üº¬ÎÄ±¾×é¼ş£¬¸üĞÂÎÄ±¾
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
         TextMeshProUGUI textComponent = commentObject.GetComponent<TextMeshProUGUI>();
         if (textComponent != null)
         {
@@ -153,16 +157,16 @@ public class NPValueManager : MonoBehaviour
         }
         else
         {
-            // Èç¹ûÆÀÂÛÎïÌå²»ÊÇÎÄ±¾£¬¿ÉÄÜÊÇÆäËûÀàĞÍµÄ×é¼ş
-            // Äã¿ÉÒÔÔÚÕâÀïÌí¼Ó¶îÍâµÄ´¦ÀíÂß¼­£¬±ÈÈçÎª Image ÉèÖÃÒ»Ğ©ÊôĞÔµÈ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å²»ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª Image ï¿½ï¿½ï¿½ï¿½Ò»Ğ©ï¿½ï¿½ï¿½Ôµï¿½
         }
     }
 }
 
-// ÓÃÓÚ¹ØÁªÍæ¼ÒÓëÑÚÂëµÄ×Ô¶¨ÒåÀà
+// ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
 [System.Serializable]
 public class PlayerMask
 {
     public Transform player;
-    public int maskIndex; // Ö¸¶¨Íæ¼Ò¶ÔÓ¦µÄÑÚÂëË÷Òı (1-5)
+    public int maskIndex; // Ö¸ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (1-5)
 }

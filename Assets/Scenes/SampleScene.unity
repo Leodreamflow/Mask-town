@@ -7186,11 +7186,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144836530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f094a2e94bd5fec409bd5732196298bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Newstransform: {fileID: 0}
   newsData: {fileID: 11400000, guid: 594fa0107e1934e118641d27b8786a1b, type: 2}
   playerMasks:
   - player: {fileID: 2035932548}
@@ -9880,7 +9881,6 @@ GameObject:
   - component: {fileID: 1675836238}
   - component: {fileID: 1675836239}
   - component: {fileID: 1675836240}
-  - component: {fileID: 1675836241}
   m_Layer: 0
   m_Name: news
   m_TagString: Untagged
@@ -10045,37 +10045,19 @@ MonoBehaviour:
   - {fileID: 1422210365}
   - {fileID: 1911743845}
   - {fileID: 303478713}
---- !u!114 &1675836241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675836234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f094a2e94bd5fec409bd5732196298bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newsData: {fileID: 11400000, guid: 594fa0107e1934e118641d27b8786a1b, type: 2}
-  playerMasks:
-  - player: {fileID: 2035932548}
-    maskIndex: 1
-  - player: {fileID: 1225485281}
-    maskIndex: 2
-  - player: {fileID: 1422210365}
-    maskIndex: 3
-  - player: {fileID: 1911743845}
-    maskIndex: 4
-  - player: {fileID: 303478713}
-    maskIndex: 5
-  npText: {fileID: 1229048047}
-  commentObjects:
+  NPvalue: 0
+  Feedbacks:
+  - {fileID: 11400000, guid: 470eb275af0b448579f2bad9a94bcd63, type: 2}
+  - {fileID: 11400000, guid: 470eb275af0b448579f2bad9a94bcd63, type: 2}
+  - {fileID: 11400000, guid: 470eb275af0b448579f2bad9a94bcd63, type: 2}
+  - {fileID: 11400000, guid: 470eb275af0b448579f2bad9a94bcd63, type: 2}
+  - {fileID: 11400000, guid: 470eb275af0b448579f2bad9a94bcd63, type: 2}
+  Comments:
   - {fileID: 935410495}
-  - {fileID: 1684871380}
+  - {fileID: 680528630}
+  - {fileID: 1779603578}
   - {fileID: 1060316781}
   - {fileID: 1379801480}
-  - {fileID: 1779603578}
 --- !u!1 &1684871380
 GameObject:
   m_ObjectHideFlags: 0
